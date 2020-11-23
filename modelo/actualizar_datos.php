@@ -17,19 +17,21 @@ if ($contraseña != $repitaLaContraseña) {
     );
     echo json_encode($respuesta);
 } else {
-    if (!isset($direccion)) {
+    if (empty($direccion)) {
         $direccion = $_SESSION['direccion'];
     } 
-    if (!isset($telefono)) {
+    if (empty($telefono)) {
         $telefono = $_SESSION['telefono'];
     }
-    if (!isset($email)) {
+    if (empty($email)) {
         $email = $_SESSION['email'];
     }
-    if (isset($_SESSION['password'])) { }
+    if (empty($_SESSION['password'])) { 
+        $sql = "UPDATE usuario SET direccion = '$direccion', telefono = '$telefono', email = '$email' WHERE documento = $documento";
+    } else {
+        $sql = "UPDATE usuario SET direccion = '$direccion', telefono = '$telefono', email = '$email', contrasena = '$contraseña' WHERE documento = $documento";
+    }
     
-    $sql = "UPDATE usuario SET direccion = '$direccion', telefono = '$telefono', email = '$email' WHERE documento = $documento";
-
     $ejecutar = mysqli_query($conexion, $sql);
     if ($ejecutar) {
         $respuesta = array(

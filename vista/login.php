@@ -50,7 +50,7 @@ if (isset($_SESSION['rol'])) {
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
-                            <a href="#forgot"><i style="color: blue;">¿Olvidastes tu contraseña?</i></a>
+                            <a href="#forgot"><i style="color: blue;">¿Olvid&oacute; su contraseña?</i></a>
                         </div>
                     </div>
                 </div>
