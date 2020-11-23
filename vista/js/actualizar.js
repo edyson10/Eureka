@@ -29,7 +29,9 @@ $(document).ready(function() {
                             'Se ha actualizado correctamente los datos',
                             'success'
                         ),
-                        location.reload();
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1500);
                 }
             }
         });
